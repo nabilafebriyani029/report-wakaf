@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="id"><head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260714-01-1ce93b2"}');</script><script src="/_sdk/f432b76fb310b513.telemetry_sdk.js" integrity="sha512-9FJQ55EKmmqhyyik8BhrMVfm0+iYYfb8uOlRsjtkxJMEI97qOVEI4PnHohDjQAtvAep0IOEpdQ64eki0sz62ug=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analisis Media Sosial — Dashboard Dinamis</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+   body { font-family: 'Work Sans', sans-serif; }
+   h1,h2,h3,h4 { font-family: 'Work Sans', sans-serif; letter-spacing:-0.01em; }
+   .circles { position:absolute; pointer-events:none; }
+   .circles span { position:absolute; border:1.5px solid rgba(0,0,0,.35); border-radius:9999px; width:70px; height:70px; }
+   .circles span:nth-child(1){ top:0; left:0; }
+   .circles span:nth-child(2){ top:14px; left:14px; }
+   .circles span:nth-child(3){ top:28px; left:6px; opacity:.5; }
+   .side-band { border-left:6px solid; }
+   a:focus-visible, button:focus-visible { outline:2px solid #ff3d9a; outline-offset:2px; }
+  </style>
+  <script src="/_sdk/0179d719c431a79e.data_sdk.js" type="text/javascript" integrity="sha512-OsRvJkI5GkC3MJQcgotQYotpzrMSX415GiKKgvYdxQEEkzD/fdchShO2FMSy0PJr/tiINMXOk5Vl2zAgg6bUiA=="></script>
+  <script src="/_sdk/9432170dbd2ae0df.resizing_sdk.js" type="text/javascript" integrity="sha512-FeT+58sb1f9ejWPWFjCbJvTT+SDwGV+ngrHUnlO7TWEOoqwOLj6p256kO3vOL7DIWl1cIgrobiof8v2bOigwPg=="></script>
+ </head>
+ <body data-template-id="__page-root" class="min-h-screen w-full" style="background:#ffffff;">
+  <div class="w-full max-w-6xl mx-auto"><!-- COVER -->
+   <section data-template-id="cover-section" class="canva-section relative w-full overflow-hidden flex flex-col justify-center items-center py-16 px-8 text-center min-h-[300px]" style="background: rgb(25, 68, 48);">
+    <div class="relative z-10 max-w-3xl">
+     <h1 data-template-id="cover-title" class="canva-text leading-none uppercase font-black tracking-tight" style="color: rgb(255, 255, 255); font-weight: 900; font-style: normal; font-size: 36px;">Analisis Sosial Media 
+Wakaf Al Bahjah</h1>
+     <p data-template-id="cover-month" class="canva-text mt-6 font-bold" style="color: rgb(255, 255, 255); font-weight: 700; font-style: normal; font-size: 22px;">Juni 2026</p>
+    </div>
+    <div class="absolute top-0 right-0 h-full w-3" style="background:#f4d34d;"></div>
+   </section>
+   <div class="px-5 md:px-8"><!-- CONTENT OVERVIEW (DYNAMIC) -->
+    <section data-template-id="overview-section" class="canva-section mt-10 pb-8 border-b border-gray-200" style="background: rgb(255, 255, 255);">
+     <h2 data-template-id="overview-title" class="canva-text font-extrabold mb-6" style="color: rgb(17, 17, 17); font-weight: 800; font-style: normal; font-size: 24px;">Content Overview Juli</h2><!-- Input form for overview bars -->
+     <form id="overview-form" class="bg-gray-50 p-5 rounded-xl border border-gray-200 w-full shadow-sm mb-6">
+      <h3 data-template-id="ov-form-title" class="canva-text font-bold mb-4 uppercase tracking-wide" style="color: rgb(17, 17, 17); font-weight: 700; font-style: normal; font-size: 19px;">TAMBAH FORMAT KONTEN</h3>
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
+       <div><label data-template-id="ov-group-label" for="ov-group" class="canva-text block text-xs font-bold mb-1.5 uppercase" style="color: rgb(55, 65, 81); font-weight: 700; font-style: normal; font-size: 12px;">Grup Platform</label> <select id="ov-group" class="w-full text-sm p-2.5 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-emerald-500"> <option value="ig">Instagram &amp; Facebook</option> <option value="tt">TikTok</option> </select>
+       </div>
+       <div><label data-template-id="ov-label-label" for="ov-label" class="canva-text block text-xs font-bold mb-1.5 uppercase" style="color: rgb(55, 65, 81); font-weight: 700; font-style: normal; font-size: 12px;">Format Konten</label> <input type="text" id="ov-label" required="" class="w-full text-sm p-2.5 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-emerald-500" placeholder="Feed, Reels, Story, Video…">
+       </div>
+       <div><label data-template-id="ov-value-label" for="ov-value" class="canva-text block text-xs font-bold mb-1.5 uppercase" style="color: rgb(55, 65, 81); font-weight: 700; font-style: normal; font-size: 12px;">Jumlah Konten</label> <input type="number" id="ov-value" required="" class="w-full text-sm p-2.5 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-emerald-500" placeholder="28">
+       </div>
+       <div><label data-template-id="ov-goal-label" for="ov-goal" class="canva-text block text-xs font-bold mb-1.5 uppercase" style="color: rgb(55, 65, 81); font-weight: 700; font-style: normal; font-size: 12px;">Target/Bulan</label> <input type="number" id="ov-goal" min="0" class="w-full text-sm p-2.5 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-emerald-500" placeholder="40">
+       </div>
+       <div><button type="submit" id="ov-submit" data-template-id="ov-submit-btn" class="canva-button w-full text-white text-sm px-4 py-2.5 rounded-lg shadow-sm transition font-bold flex items-center justify-center gap-2" style="background: rgb(5, 150, 105); color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 16px;">Tambah</button>
+       </div>
+      </div>
+     </form>
+     <div id="overview-feedback" class="hidden text-xs py-2 px-3 rounded mb-3 font-semibold"></div>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="side-band pl-4" style="border-color:#f4d34d;">
+       <h3 data-template-id="ig-format-title" class="canva-text font-bold uppercase mb-4" style="color: rgb(17, 17, 17); font-weight: 700; font-style: normal; font-size: 17px;">Content Format Instagram &amp; Facebook</h3>
+       <div id="ig-bars" class="space-y-4"></div>
+       <p id="ig-empty" data-template-id="ig-empty" class="canva-text text-center py-4" style="color: rgb(136, 136, 136); font-weight: 400; font-style: normal; font-size: 16px;">Belum ada data format Instagram.</p>
+       <p id="ig-count" class="text-center font-bold mt-5" style="color:#1f9d55;font-size:17px;"></p>
+       <p id="ig-target" class="text-center mt-1" style="color:#333;font-size:14px;"></p>
+      </div>
+      <div class="side-band pl-4" style="border-color:#f4d34d;">
+       <h3 data-template-id="tt-format-title" class="canva-text font-bold uppercase mb-4" style="color: rgb(17, 17, 17); font-weight: 700; font-style: normal; font-size: 17px;">Content Format TikTok</h3>
+       <div id="tt-bars" class="space-y-4"></div>
+       <p id="tt-empty" data-template-id="tt-empty" class="canva-text text-center py-4" style="color: rgb(136, 136, 136); font-weight: 400; font-style: normal; font-size: 13px;">Belum ada data format TikTok.</p>
+       <p id="tt-count" class="text-center font-bold mt-5" style="color:#e11d48;font-size:17px;"></p>
+       <p id="tt-target" class="text-center mt-1" style="color:#333;font-size:14px;"></p>
+      </div>
+     </div>
+    </section><!-- TOP 5 PERFORMING POSTS -->
+    <section data-template-id="top5-section" class="canva-section mt-10 pb-8 border-b border-gray-200" style="background: rgb(255, 255, 255);">
+     <div class="relative">
+      <div class="circles" style="top:-6px;left:-4px;">
+       <span></span><span></span><span></span>
+      </div>
+      <h2 data-template-id="top5-title" class="canva-text font-extrabold pl-2" style="color: rgb(17, 17, 17); font-weight: 800; font-style: normal; font-size: 24px;">Content Overview</h2>
+     </div>
+     <p data-template-id="top5-sub" class="canva-text uppercase tracking-wide mt-2 mb-5" style="color: rgb(68, 68, 68); font-weight: 400; font-style: normal; font-size: 16px;">Top 5 Performing Posts</p>
+     <div class="overflow-x-auto rounded-lg">
+      <table class="canva-table w-full text-left border-collapse min-w-[640px]">
+       <thead>
+        <tr style="background:#1fbf3f;">
+         <th data-template-id="th-title" class="canva-text px-3 py-2.5 font-semibold" style="color: rgb(17, 17, 17); font-weight: 700; font-style: normal; font-size: 16px;">POST TITLE</th>
+         <th data-template-id="th-pillar" class="canva-text px-3 py-2.5 font-semibold" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Content Pillar</th>
+         <th data-template-id="th-platform" class="canva-text px-3 py-2.5 font-semibold" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Platform</th>
+         <th data-template-id="th-format" class="canva-text px-3 py-2.5 font-semibold" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Format</th>
+         <th data-template-id="th-date" class="canva-text px-3 py-2.5 font-semibold" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Date</th>
+         <th data-template-id="th-views" class="canva-text px-3 py-2.5 font-semibold" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Tayangan</th>
+         <th data-template-id="th-likes" class="canva-text px-3 py-2.5 font-semibold" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Like</th>
+        </tr>
+       </thead>
+       <tbody style="background:#f4d34d;">
+        <tr class="border-b border-black/20">
+         <td data-template-id="r1-title" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Tebar Al Quran</td>
+         <td data-template-id="r1-pillar" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Program</td>
+         <td data-template-id="r1-platform" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Tiktok</td>
+         <td data-template-id="r1-format" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Video</td>
+         <td data-template-id="r1-date" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">10 Juni</td>
+         <td data-template-id="r1-views" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">369</td>
+         <td data-template-id="r1-likes" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">19</td>
+        </tr>
+        <tr class="border-b border-black/20">
+         <td data-template-id="r2-title" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Profiling Program Wakaf Air Bersih</td>
+         <td data-template-id="r2-pillar" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Program</td>
+         <td data-template-id="r2-platform" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Tiktok</td>
+         <td data-template-id="r2-format" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Video</td>
+         <td data-template-id="r2-date" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">8 Juni</td>
+         <td data-template-id="r2-views" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">266</td>
+         <td data-template-id="r2-likes" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">17</td>
+        </tr>
+        <tr class="border-b border-black/20">
+         <td data-template-id="r3-title" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Niat Puasa Muharram</td>
+         <td data-template-id="r3-pillar" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Edukasi</td>
+         <td data-template-id="r3-platform" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Instagram</td>
+         <td data-template-id="r3-format" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Feed</td>
+         <td data-template-id="r3-date" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Juni</td>
+         <td data-template-id="r3-views" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">34.313</td>
+         <td data-template-id="r3-likes" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">545</td>
+        </tr>
+        <tr class="border-b border-black/20">
+         <td data-template-id="r4-title" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Wakaf Alat Pertanian</td>
+         <td data-template-id="r4-pillar" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Program</td>
+         <td data-template-id="r4-platform" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Instagram</td>
+         <td data-template-id="r4-format" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Feed</td>
+         <td data-template-id="r4-date" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Juni</td>
+         <td data-template-id="r4-views" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">10,360</td>
+         <td data-template-id="r4-likes" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">69</td>
+        </tr>
+        <tr>
+         <td data-template-id="r5-title" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Tebar Al-Quran</td>
+         <td data-template-id="r5-pillar" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Program</td>
+         <td data-template-id="r5-platform" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Instagram</td>
+         <td data-template-id="r5-format" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Video</td>
+         <td data-template-id="r5-date" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">Juni</td>
+         <td data-template-id="r5-views" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">7.499</td>
+         <td data-template-id="r5-likes" class="canva-text px-3 py-3" style="color: rgb(17, 17, 17); font-weight: 400; font-style: normal; font-size: 14px;">174</td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </section><!-- PERFORMANCE DASHBOARD (DYNAMIC) -->
+    <section data-template-id="perf-section" class="canva-section mt-10 pb-8 border-b border-gray-200" style="background: rgb(255, 255, 255);">
+     <h2 data-template-id="perf-title" class="canva-text font-extrabold mb-6" style="color: rgb(17, 17, 17); font-weight: 800; font-style: normal; font-size: 24px;">Performance Overview — Dashboard Dinamis</h2>
+     <form id="metric-form" class="bg-gray-50 p-5 rounded-xl border border-gray-200 w-full shadow-sm mb-6">
+      <h3 data-template-id="metric-form-title" class="canva-text font-bold mb-4 uppercase tracking-wide" style="color: rgb(17, 17, 17); font-weight: 700; font-style: normal; font-size: 14px;">Tambah / Perbarui Matriks Performa</h3>
+      <div class="grid grid-cols-1 md:grid-cols-6 gap-4 items-end">
+       <div><label data-template-id="mf-platform-label" for="m-platform" class="canva-text block text-xs font-bold mb-1.5 uppercase" style="color: rgb(55, 65, 81); font-weight: 700; font-style: normal; font-size: 12px;">Platform</label> <select id="m-platform" class="w-full text-sm p-2.5 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-emerald-500"> <option value="Instagram">Instagram</option> <option value="TikTok">TikTok</option> <option value="Facebook">Facebook</option> <option value="YouTube">YouTube</option> </select>
+       </div>
+       <div><label data-template-id="mf-label-label" for="m-label" class="canva-text block text-xs font-bold mb-1.5 uppercase" style="color: rgb(55, 65, 81); font-weight: 700; font-style: normal; font-size: 12px;">Matriks</label> <input type="text" id="m-label" required="" class="w-full text-sm p-2.5 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-emerald-500" placeholder="Impressions, Likes, Followers…">
+       </div>
+       <div><label data-template-id="mf-value-label" for="m-value" class="canva-text block text-xs font-bold mb-1.5 uppercase" style="color: rgb(55, 65, 81); font-weight: 700; font-style: normal; font-size: 12px;">Nilai</label> <input type="number" id="m-value" required="" class="w-full text-sm p-2.5 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-emerald-500" placeholder="1200">
+       </div>
+       <div><label data-template-id="mf-note-label" for="m-note" class="canva-text block text-xs font-bold mb-1.5 uppercase" style="color: rgb(55, 65, 81); font-weight: 700; font-style: normal; font-size: 12px;">Catatan</label> <input type="text" id="m-note" class="w-full text-sm p-2.5 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-emerald-500" placeholder="+12%, opsional">
+       </div>
+       <div><label data-template-id="mf-img-label" for="m-img" class="canva-text block text-xs font-bold mb-1.5 uppercase" style="color: rgb(55, 65, 81); font-weight: 700; font-style: normal; font-size: 12px;">URL Gambar Konten (Opsional)</label> <input type="url" id="m-img" class="w-full text-sm p-2.5 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-emerald-500" placeholder="https://images.pexels.com/...">
+       </div>
+       <div><button type="submit" id="metric-submit" data-template-id="metric-submit-btn" class="canva-button w-full text-white text-sm px-4 py-2.5 rounded-lg shadow-sm transition font-bold flex items-center justify-center gap-2" style="background: rgb(5, 150, 105); color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 16px;">Simpan</button>
+       </div>
+      </div>
+     </form>
+     <div id="metric-feedback" class="hidden text-xs py-2 px-3 rounded mb-3 font-semibold"></div>
+     <p data-template-id="perf-empty" id="perf-empty" class="canva-text text-center py-8" style="color: rgb(136, 136, 136); font-weight: 400; font-style: normal; font-size: 14px;">Belum ada matriks performa. Tambahkan matriks baru lewat form di atas.</p>
+     <div id="grouped-metrics-container" class="space-y-6">
+      <div id="group-instagram" class="hidden">
+       <h4 class="text-sm font-bold uppercase tracking-wider text-pink-600 mb-2 flex items-center gap-1.5"><i data-lucide="instagram" class="w-4 h-4"></i> Instagram</h4>
+       <div id="grid-instagram" class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4"></div>
+      </div>
+      <div id="group-tiktok" class="hidden">
+       <h4 class="text-sm font-bold uppercase tracking-wider text-gray-900 mb-2 flex items-center gap-1.5"><i data-lucide="music-2" class="w-4 h-4"></i> TikTok</h4>
+       <div id="grid-tiktok" class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4"></div>
+      </div>
+      <div id="group-facebook" class="hidden">
+       <h4 class="text-sm font-bold uppercase tracking-wider text-blue-600 mb-2 flex items-center gap-1.5"><i data-lucide="facebook" class="w-4 h-4"></i> Facebook</h4>
+       <div id="grid-facebook" class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4"></div>
+      </div>
+      <div id="group-youtube" class="hidden">
+       <h4 class="text-sm font-bold uppercase tracking-wider text-red-600 mb-2 flex items-center gap-1.5"><i data-lucide="youtube" class="w-4 h-4"></i> YouTube</h4>
+       <div id="grid-youtube" class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4"></div>
+      </div>
+     </div>
+    </section><!-- GOAL TRACKING (DYNAMIC) -->
+    <section data-template-id="goal-section" class="canva-section mt-10 pb-8 border-b border-gray-200" style="background: rgb(255, 255, 255);">
+     <h2 data-template-id="goal-heading" class="canva-text font-extrabold mb-6" style="color: rgb(17, 17, 17); font-weight: 800; font-style: normal; font-size: 24px;">Goal Tracking (Dinamis)</h2>
+     <form id="goal-form" class="bg-gray-50 p-5 rounded-xl border border-gray-200 w-full shadow-sm mb-6">
+      <h3 data-template-id="goal-form-title" class="canva-text font-bold mb-4 uppercase tracking-wide" style="color: rgb(17, 17, 17); font-weight: 700; font-style: normal; font-size: 14px;">Tambah / Perbarui Goal</h3>
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
+       <div><label data-template-id="gf-platform-label" for="g-platform" class="canva-text block text-xs font-bold mb-1.5 uppercase" style="color: rgb(55, 65, 81); font-weight: 700; font-style: normal; font-size: 12px;">Platform</label> <select id="g-platform" class="w-full text-sm p-2.5 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-pink-500"> <option value="Instagram">Instagram</option> <option value="TikTok">TikTok</option> <option value="Facebook">Facebook</option> </select>
+       </div>
+       <div><label data-template-id="gf-label-label" for="g-label" class="canva-text block text-xs font-bold mb-1.5 uppercase" style="color: rgb(55, 65, 81); font-weight: 700; font-style: normal; font-size: 12px;">Nama Goal</label> <input type="text" id="g-label" required="" class="w-full text-sm p-2.5 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-pink-500" placeholder="Follower Growth">
+       </div>
+       <div><label data-template-id="gf-value-label" for="g-value" class="canva-text block text-xs font-bold mb-1.5 uppercase" style="color: rgb(55, 65, 81); font-weight: 700; font-style: normal; font-size: 12px;">Pencapaian Sekarang</label> <input type="number" id="g-value" required="" class="w-full text-sm p-2.5 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-pink-500" placeholder="369">
+       </div>
+       <div><label data-template-id="gf-goal-label" for="g-goal" class="canva-text block text-xs font-bold mb-1.5 uppercase" style="color: rgb(55, 65, 81); font-weight: 700; font-style: normal; font-size: 12px;">Target</label> <input type="number" id="g-goal" required="" min="1" class="w-full text-sm p-2.5 border border-gray-300 rounded-lg bg-white focus:ring-2 focus:ring-pink-500" placeholder="1000">
+       </div>
+       <div><button type="submit" id="goal-submit" data-template-id="goal-submit-btn" class="canva-button w-full text-white text-sm px-4 py-2.5 rounded-lg shadow-sm transition font-bold flex items-center justify-center gap-2" style="background: rgb(255, 61, 154); color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 16px;">Tambah Goal</button>
+       </div>
+      </div>
+     </form>
+     <div id="goal-feedback" class="hidden text-xs py-2 px-3 rounded mb-3 font-semibold"></div>
+     <p data-template-id="goal-empty" id="goal-empty" class="canva-text text-center py-8" style="color: rgb(136, 136, 136); font-weight: 400; font-style: normal; font-size: 14px;">Belum ada goal. Tambahkan target follower atau upload konten lewat form di atas.</p>
+     <div id="goal-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+    </section>
+    <footer class="canva-footer pb-8 mt-10">
+     <p data-template-id="report-footer" class="canva-text text-center" style="color: rgb(136, 136, 136); font-weight: 400; font-style: normal; font-size: 13px;">Social Media Design Report — Juni 2026</p>
+    </footer>
+   </div>
+  </div><!-- Dynamic overview bar template -->
+  <template id="overview-bar-template">
+   <div data-template-id="overview-bar" class="canva-list group">
+    <div class="flex items-center gap-3"><span class="ov-label text-sm w-24 shrink-0" style="color:#333;"></span>
+     <div class="flex-1 h-6 rounded-sm overflow-hidden" style="background:#f0f0f0;">
+      <div class="ov-fill h-full" style="width:0%;background:#111111;"></div>
+     </div><span class="ov-val text-sm font-semibold w-8 text-right" style="color:#111;"></span> <button type="button" class="ov-del text-[11px] font-bold px-1.5 py-1 rounded opacity-0 group-hover:opacity-100 transition" style="background:#fee2e2;color:#b91c1c;">✕</button>
+    </div>
+   </div>
+  </template><!-- Dynamic metric card template -->
+  <template id="metric-card-template">
+   <div data-template-id="metric-card" class="canva-card p-4 rounded-xl border border-gray-200 relative" style="background:#fafafa;">
+    <img class="metric-img w-full h-24 object-cover rounded-md mb-2 hidden" alt="Konten" loading="lazy">
+    <p class="metric-platform text-[11px] font-bold uppercase tracking-wide" style="color:#ff3d9a;"></p>
+    <p class="metric-label text-sm font-semibold mt-1" style="color:#333;"></p>
+    <p class="metric-value text-2xl font-black mt-1" style="color:#111;"></p>
+    <p class="metric-note text-xs mt-1" style="color:#1f9d55;"></p>
+    <div class="flex gap-2 mt-3"><button type="button" class="metric-del text-[11px] font-bold px-2 py-1 rounded" style="background:#fee2e2;color:#b91c1c;">Hapus</button> <button type="button" class="metric-del-confirm hidden text-[11px] font-bold px-2 py-1 rounded" style="background:#dc2626;color:#fff;">Yakin?</button> <button type="button" class="metric-del-cancel hidden text-[11px] font-bold px-2 py-1 rounded" style="background:#e5e7eb;color:#111;">Batal</button>
+    </div>
+   </div>
+  </template><!-- Dynamic goal card template -->
+  <template id="goal-card-template">
+   <div data-template-id="goal-card" class="canva-card p-4 rounded-xl border border-gray-200 relative" style="background:#fafafa;">
+    <p class="goal-platform text-[11px] font-bold uppercase tracking-wide" style="color:#ff3d9a;"></p>
+    <h3 class="goal-title text-base font-bold uppercase mt-1" style="color:#111;"></h3>
+    <p class="goal-target text-sm mt-1" style="color:#444;"></p>
+    <div class="flex items-center gap-3 mt-3">
+     <div class="flex-1 h-4 rounded-full overflow-hidden" style="background:#eee;">
+      <div class="goal-bar h-full rounded-full" style="width:0%;background:#c9a415;"></div>
+     </div><span class="goal-pct text-sm font-bold" style="color:#111;"></span>
+    </div>
+    <p class="goal-now text-sm mt-2" style="color:#333;"></p>
+    <div class="flex gap-2 mt-3"><button type="button" class="goal-del text-[11px] font-bold px-2 py-1 rounded" style="background:#fee2e2;color:#b91c1c;">Hapus</button> <button type="button" class="goal-del-confirm hidden text-[11px] font-bold px-2 py-1 rounded" style="background:#dc2626;color:#fff;">Yakin?</button> <button type="button" class="goal-del-cancel hidden text-[11px] font-bold px-2 py-1 rounded" style="background:#e5e7eb;color:#111;">Batal</button>
+    </div>
+   </div>
+  </template>
+  <script src="/_sdk/0f620e7ef74834b7.editing_sdk.js" integrity="sha512-lIpWd9O7x1sKwBnjNH9J7/eTBLJGkf7n9/wFnpqN+1F13ihXMO5RKTyR0DpZa/r+dIVMSGocs367wfzX+y3hew=="></script>
+  <script>
+  const MAX_RECORDS = 999;
+  let currentData = [];
+
+  const goalGrid = document.getElementById('goal-grid');
+  const perfEmpty = document.getElementById('perf-empty');
+  const goalEmpty = document.getElementById('goal-empty');
+  const igBars = document.getElementById('ig-bars');
+  const ttBars = document.getElementById('tt-bars');
+  const igEmpty = document.getElementById('ig-empty');
+  const ttEmpty = document.getElementById('tt-empty');
+  const igCount = document.getElementById('ig-count');
+  const ttCount = document.getElementById('tt-count');
+  const igTarget = document.getElementById('ig-target');
+  const ttTarget = document.getElementById('tt-target');
+
+  function feedback(elId, text, isError){
+    const el = document.getElementById(elId);
+    el.textContent = text;
+    el.className = `text-xs py-2 px-3 rounded mb-3 font-semibold ${isError ? 'bg-rose-100 text-rose-800 border border-rose-200' : 'bg-emerald-100 text-emerald-800 border border-emerald-200'}`;
+    el.classList.remove('hidden');
+    setTimeout(()=>el.classList.add('hidden'), 5000);
+  }
+
+  // ---- Overview bars build/update ----
+  function buildOverviewBar(rec, max){
+    const node = document.getElementById('overview-bar-template').content.cloneNode(true);
+    const bar = node.querySelector('[data-template-id="overview-bar"]');
+    bar.dataset.id = rec.__backendId;
+    updateOverviewBar(bar, rec, max);
+    const del = bar.querySelector('.ov-del');
+    del.addEventListener('click', async ()=>{
+      del.disabled = true; del.textContent = '…';
+      const target = currentData.find(r=>r.__backendId === rec.__backendId);
+      if(!target) return;
+      const res = await window.dataSdk.delete(target);
+      if(!res.isOk){ del.disabled=false; del.textContent='✕'; }
+    });
+    return bar;
+  }
+  function updateOverviewBar(bar, rec, max){
+    const v = Number(rec.value) || 0;
+    const w = max>0 ? Math.round((v/max)*100) : 0;
+    bar.querySelector('.ov-label').textContent = rec.label || '';
+    bar.querySelector('.ov-fill').style.width = w + '%';
+    bar.querySelector('.ov-val').textContent = v;
+  }
+  function renderOverviewGroup(container, emptyEl, countEl, targetEl, records, color){
+    emptyEl.style.display = records.length ? 'none' : '';
+    const max = records.reduce((m,r)=>Math.max(m, Number(r.value)||0), 0);
+    // sync bars
+    const existing = new Map([...container.children].map(el=>[el.dataset.id, el]));
+    records.forEach(rec=>{
+      if(existing.has(rec.__backendId)){
+        updateOverviewBar(existing.get(rec.__backendId), rec, max);
+        existing.delete(rec.__backendId);
+      } else {
+        container.appendChild(buildOverviewBar(rec, max));
+      }
+    });
+    existing.forEach(el=>el.remove());
+    // colorize fills
+    container.querySelectorAll('.ov-fill').forEach(f=>f.style.background = color);
+    // count + target
+    const total = records.reduce((s,r)=>s + (Number(r.value)||0), 0);
+    const targetRec = records.find(r=>Number(r.goal)>0);
+    countEl.textContent = records.length ? ('Jumlah Konten ' + total) : '';
+    targetEl.textContent = targetRec ? ('Target Jumlah Konten ' + Number(targetRec.goal) + '/Bulan') : '';
+  }
+
+  // ---- Metric card build/update ----
+  function buildMetricCard(rec){
+    const node = document.getElementById('metric-card-template').content.cloneNode(true);
+    const card = node.querySelector('[data-template-id="metric-card"]');
+    card.dataset.id = rec.__backendId;
+    updateMetricCard(card, rec);
+    wireDelete(card, '.metric-del', '.metric-del-confirm', '.metric-del-cancel', rec);
+    return card;
+  }
+  function updateMetricCard(card, rec){
+    card.querySelector('.metric-platform').textContent = rec.platform || '';
+    card.querySelector('.metric-label').textContent = rec.label || '';
+    card.querySelector('.metric-value').textContent = Number(rec.value).toLocaleString('id-ID');
+    card.querySelector('.metric-note').textContent = rec.note || '';
+    const imgEl = card.querySelector('.metric-img');
+    if (rec.image_src && rec.image_src.trim() !== '') {
+      imgEl.src = rec.image_src;
+      imgEl.classList.remove('hidden');
+    } else {
+      imgEl.classList.add('hidden');
+    }
+  }
+
+  // ---- Goal card build/update ----
+  function buildGoalCard(rec){
+    const node = document.getElementById('goal-card-template').content.cloneNode(true);
+    const card = node.querySelector('[data-template-id="goal-card"]');
+    card.dataset.id = rec.__backendId;
+    updateGoalCard(card, rec);
+    wireDelete(card, '.goal-del', '.goal-del-confirm', '.goal-del-cancel', rec);
+    return card;
+  }
+  function updateGoalCard(card, rec){
+    const goal = Number(rec.goal) || 0;
+    const value = Number(rec.value) || 0;
+    const pct = goal>0 ? Math.min(100, (value/goal)*100) : 0;
+    card.querySelector('.goal-platform').textContent = rec.platform || '';
+    card.querySelector('.goal-title').textContent = rec.label || '';
+    card.querySelector('.goal-target').textContent = 'Goal: ' + goal.toLocaleString('id-ID');
+    card.querySelector('.goal-bar').style.width = pct + '%';
+    card.querySelector('.goal-pct').textContent = pct.toFixed(1).replace(/\.0$/,'') + '%';
+    let now = 'Sekarang: ' + value.toLocaleString('id-ID');
+    if(rec.note) now += ' — ' + rec.note;
+    card.querySelector('.goal-now').textContent = now;
+  }
+
+  // ---- Inline two-step delete ----
+  function wireDelete(card, delSel, confirmSel, cancelSel, rec){
+    const del = card.querySelector(delSel);
+    const conf = card.querySelector(confirmSel);
+    const cancel = card.querySelector(cancelSel);
+    del.addEventListener('click', ()=>{ del.classList.add('hidden'); conf.classList.remove('hidden'); cancel.classList.remove('hidden'); });
+    cancel.addEventListener('click', ()=>{ conf.classList.add('hidden'); cancel.classList.add('hidden'); del.classList.remove('hidden'); });
+    conf.addEventListener('click', async ()=>{
+      conf.disabled = true; conf.textContent = '…';
+      const target = currentData.find(r=>r.__backendId === rec.__backendId);
+      if(!target){ return; }
+      const res = await window.dataSdk.delete(target);
+      if(!res.isOk){ conf.disabled=false; conf.textContent='Yakin?'; }
+    });
+  }
+
+  // ---- Selective render ----
+  function render(){
+    const overviews = currentData.filter(r=>r.record_type === 'overview');
+    const metrics = currentData.filter(r=>r.record_type === 'metric');
+    const goals = currentData.filter(r=>r.record_type === 'goal');
+
+    // Overview groups
+    renderOverviewGroup(igBars, igEmpty, igCount, igTarget, overviews.filter(r=>r.platform==='ig'), '#111111');
+    renderOverviewGroup(ttBars, ttEmpty, ttCount, ttTarget, overviews.filter(r=>r.platform==='tt'), '#111111');
+
+    perfEmpty.style.display = metrics.length ? 'none' : '';
+    goalEmpty.style.display = goals.length ? 'none' : '';
+
+    const platforms = ['Instagram', 'TikTok', 'Facebook', 'YouTube'];
+    platforms.forEach(plat => {
+      const pId = plat.toLowerCase();
+      const groupEl = document.getElementById('group-' + pId);
+      const gridEl = document.getElementById('grid-' + pId);
+      const platformMetrics = metrics.filter(r => (r.platform || '').toLowerCase() === plat.toLowerCase());
+      if (platformMetrics.length > 0) {
+        groupEl.classList.remove('hidden');
+        syncGrid(gridEl, platformMetrics, buildMetricCard, updateMetricCard);
+      } else {
+        groupEl.classList.add('hidden');
+        gridEl.innerHTML = '';
+      }
+    });
+
+    syncGrid(goalGrid, goals, buildGoalCard, updateGoalCard);
+    if(window.lucide) lucide.createIcons();
+  }
+  function syncGrid(grid, records, build, update){
+    const existing = new Map([...grid.children].map(el=>[el.dataset.id, el]));
+    records.forEach(rec=>{
+      if(existing.has(rec.__backendId)){
+        update(existing.get(rec.__backendId), rec);
+        existing.delete(rec.__backendId);
+      } else {
+        grid.appendChild(build(rec));
+      }
+    });
+    existing.forEach(el=>el.remove());
+  }
+
+  const handler = { onDataChanged(data){ currentData = data; render(); } };
+
+  async function initStorage(){
+    if(!window.dataSdk) return;
+    try { await window.dataSdk.init(handler); } catch(e){}
+  }
+
+  // ---- Form: overview ----
+  const overviewForm = document.getElementById('overview-form');
+  const ovBtn = document.getElementById('ov-submit');
+  const ovBtnText = document.getElementById('ov-submit-text');
+  overviewForm.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    if(!window.dataSdk){ feedback('overview-feedback','Penyimpanan Canva Sheet tidak aktif.', true); return; }
+    if(currentData.length >= MAX_RECORDS){ feedback('overview-feedback','Batas 999 data tercapai. Hapus beberapa dulu.', true); return; }
+    const platform = document.getElementById('ov-group').value;
+    const label = document.getElementById('ov-label').value.trim();
+    const value = Number(document.getElementById('ov-value').value);
+    const goal = Number(document.getElementById('ov-goal').value) || 0;
+    if(!label || isNaN(value)){ feedback('overview-feedback','Isi format dan jumlah dengan benar.', true); return; }
+    ovBtn.disabled = true; ovBtn.classList.add('opacity-50'); ovBtnText.textContent='Menyimpan…';
+    const res = await window.dataSdk.create({ record_type:'overview', platform, label, value, goal, note:'', image_src:'', created_at:new Date().toISOString() });
+    ovBtn.disabled = false; ovBtn.classList.remove('opacity-50'); ovBtnText.textContent='Tambah';
+    if(res.isOk){ feedback('overview-feedback',`Ditambahkan: ${label} (${value}).`, false); overviewForm.reset(); }
+    else { feedback('overview-feedback','Gagal menyimpan.', true); }
+  });
+
+  // ---- Form: metric ----
+  const metricForm = document.getElementById('metric-form');
+  const metricBtn = document.getElementById('metric-submit');
+  const metricBtnText = document.getElementById('metric-submit-text');
+  metricForm.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    if(!window.dataSdk){ feedback('metric-feedback','Penyimpanan Canva Sheet tidak aktif.', true); return; }
+    if(currentData.length >= MAX_RECORDS){ feedback('metric-feedback','Batas 999 data tercapai. Hapus beberapa dulu.', true); return; }
+    const platform = document.getElementById('m-platform').value;
+    const label = document.getElementById('m-label').value.trim();
+    const value = Number(document.getElementById('m-value').value);
+    const note = document.getElementById('m-note').value.trim();
+    const image_src = document.getElementById('m-img').value.trim();
+    if(!label || isNaN(value)){ feedback('metric-feedback','Isi matriks dan nilai dengan benar.', true); return; }
+    metricBtn.disabled = true; metricBtn.classList.add('opacity-50'); metricBtnText.textContent='Menyimpan…';
+    const res = await window.dataSdk.create({ record_type:'metric', platform, label, value, goal:0, note, image_src, created_at:new Date().toISOString() });
+    metricBtn.disabled = false; metricBtn.classList.remove('opacity-50'); metricBtnText.textContent='Simpan';
+    if(res.isOk){ feedback('metric-feedback',`Tersimpan: ${label} (${value}) untuk ${platform}.`, false); metricForm.reset(); }
+    else { feedback('metric-feedback','Gagal menyimpan.', true); }
+  });
+
+  // ---- Form: goal ----
+  const goalForm = document.getElementById('goal-form');
+  const goalBtn = document.getElementById('goal-submit');
+  const goalBtnText = document.getElementById('goal-submit-text');
+  goalForm.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    if(!window.dataSdk){ feedback('goal-feedback','Penyimpanan Canva Sheet tidak aktif.', true); return; }
+    if(currentData.length >= MAX_RECORDS){ feedback('goal-feedback','Batas 999 data tercapai. Hapus beberapa dulu.', true); return; }
+    const platform = document.getElementById('g-platform').value;
+    const label = document.getElementById('g-label').value.trim();
+    const value = Number(document.getElementById('g-value').value);
+    const goal = Number(document.getElementById('g-goal').value);
+    if(!label || isNaN(value) || isNaN(goal) || goal<=0){ feedback('goal-feedback','Isi goal, nilai, dan target dengan benar.', true); return; }
+    goalBtn.disabled = true; goalBtn.classList.add('opacity-50'); goalBtnText.textContent='Menyimpan…';
+    const res = await window.dataSdk.create({ record_type:'goal', platform, label, value, goal, note:'', image_src:'', created_at:new Date().toISOString() });
+    goalBtn.disabled = false; goalBtn.classList.remove('opacity-50'); goalBtnText.textContent='Tambah Goal';
+    if(res.isOk){ feedback('goal-feedback',`Goal ditambahkan: ${label} (${platform}).`, false); goalForm.reset(); }
+    else { feedback('goal-feedback','Gagal menyimpan goal.', true); }
+  });
+
+  initStorage();
+  if(window.lucide) lucide.createIcons();
+</script>
+ 
+</body></html>
